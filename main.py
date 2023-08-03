@@ -7,7 +7,7 @@ from discord.ext import commands
 
 intents = discord.Intents.default()
 intents.message_content = True
-bot = commands.Bot(command_prefix='!', intents=intents)
+bot = commands.Bot(command_prefix='cfn', intents=intents)
 
 
 @bot.event
@@ -21,7 +21,7 @@ async def ping(ctx):
 
 # Command: Share ban
 @bot.command()
-async def share_ban(ctx, user_id: int, reason: str):
+async def shareban(ctx, user_id: int, reason: str):
     # Get the member object for the given user ID
     member = bot.get_user(user_id)
 
@@ -40,10 +40,6 @@ async def share_ban(ctx, user_id: int, reason: str):
         await ctx.send(f"{member.mention} has been banned on both servers for: {reason}")
     else:
         await ctx.send("Could not find both servers.")
-
-@bot.command()
-async def hello(ctx):
-    await ctx.send("Choo choo! 🚅")
 
 
 bot.run(os.environ["DISCORD_TOKEN"])
