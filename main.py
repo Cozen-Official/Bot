@@ -9,6 +9,8 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='cfn!', intents=intents)
 
+server1_id = 1102112870583521364
+server2_id = 1071613385910792262
 
 @bot.event
 async def on_ready():
