@@ -27,7 +27,7 @@ async def shareban(ctx, user_id: int, reason: str):
 
     if not member:
         await ctx.send("User not found.")
-        return
+    #    return
 
     # Share the ban to both servers
     server1 = bot.get_guild(server1_id)
