@@ -5,7 +5,7 @@ from discord.ext import commands
 # Initialize the bot
 intents = discord.Intents.default()
 intents.message_content = True
-bot = commands.Bot(command_prefix='cfn!', intents=intents)
+bot = commands.Bot(command_prefix='/', intents=intents)
 
 # Print when Logged In
 @bot.event
