@@ -35,7 +35,7 @@ async def broadcast(ctx, *, msg):
 				await channel.send(msg)
 			except Exception:
 				continue
-				else:
+			else:
 				continue
 
 
