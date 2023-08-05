@@ -3,14 +3,11 @@
 import os
 import discord
 from discord.ext import commands
-from discord_components import DiscordComponents, Button, ButtonStyle
 
 # Initialize the bot
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='cfn!', intents=intents)
-# Initialize the DiscordComponents extension
-DiscordComponents(bot)
 
 # Server IDs
 server1_id = 1102112870583521364
@@ -43,18 +40,6 @@ async def broadcast(ctx, *, msg):
 			else:
 				continue
 				
-# Command: Send message with a Google link button
-@bot.command()
-async def google(ctx):
-	# Create a button that links to Google
-	google_button = Button(
-		label='Go to Google',
-		style=ButtonStyle.URL,
-		url='https://www.google.com'
-	)
-
-	# Send a message with the Google link button
-	await ctx.send("Click the button to go to Google:", components=[google_button])
 
 
 bot.run(os.environ["DISCORD_TOKEN"])
