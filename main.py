@@ -24,7 +24,10 @@ async def ping(ctx):
 #Command: Register
 #@bot.command()
 #
-	
+
+view = discord.ui.View()
+item = discord.ui.Button(style=discord.ButtonStyle.blurple, label="Click Me", url="https://google.com")
+view.add_item(item=item)
 # Command: Broadcast	
 @bot.command(pass_context=True)
 async def broadcast(ctx, *, msg):
@@ -32,7 +35,7 @@ async def broadcast(ctx, *, msg):
 		for channel in guild.text_channels:
 			try:
 				print(f"sending message to "+str(channel))
-				await channel.send(msg)
+				await channel.send(msg, view=view)
 			except Exception:
 				continue
 			else:
