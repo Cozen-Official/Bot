@@ -36,7 +36,7 @@ async def broadcast(ctx, *, msg):
             except Exception:
                 continue
             else:
-                break
+                continue
 
 
 bot.run(os.environ["DISCORD_TOKEN"])
