@@ -42,6 +42,18 @@ async def shareban(ctx, user_id: int, reason: str):
         await ctx.send(f"{member.mention} has been banned on both servers for: {reason}")
     else:
         await ctx.send("Could not find both servers.")
+	
+# Command: Broadcast	
+@bot.command(pass_context=True)
+async def broadcast(ctx, *, msg):
+    for server in bot.guilds:
+        for channel in server.text_channels:
+            try:
+                await channel.send(msg)
+            except Exception:
+                continue
+            else:
+                break
 
 
 bot.run(os.environ["DISCORD_TOKEN"])
