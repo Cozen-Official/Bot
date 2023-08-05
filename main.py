@@ -28,7 +28,7 @@ async def ping(ctx):
 # Command: Broadcast	
 @bot.command(pass_context=True)
 async def broadcast(ctx, *, msg):
-    for server in bot.guilds:
+    for guild in bot.guilds:
         for channel in guild.text_channels:
             try:
                 await channel.send(msg)
