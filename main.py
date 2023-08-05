@@ -46,11 +46,5 @@ async def send_ban(ctx, name: str, userid: int):
 	view.add_item(ban_button)
 
 	await ctx.send(embed=embed, view=view)
-
-@bot.event
-async def on_button_click(interaction):
-	if interaction.custom_id == 'ban_user':
-		await interaction.defer()
-		await ban_callback(interaction)
 		
 bot.run(os.environ["DISCORD_TOKEN"])
