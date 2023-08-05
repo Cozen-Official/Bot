@@ -22,8 +22,8 @@ async def ping(ctx):
     await ctx.send('pong')
 	
 #Command: Register
-@bot.command()
-async def register(ctx, 
+#@bot.command()
+#
 	
 # Command: Broadcast	
 @bot.command(pass_context=True)
