@@ -32,7 +32,7 @@ async def broadcast(ctx, *, msg):
         for channel in guild.text_channels:
             try:
                 print(f"sending message to"+str(channel))
-				await channel.send(msg)
+				#await channel.send(msg)
             except Exception:
                 continue
             else:
