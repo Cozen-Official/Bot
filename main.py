@@ -30,7 +30,7 @@ async def broadcast(ctx, *, msg):
 			else:
 				continue
 
-@bot.slash_command(name="sendban", description="Send an embed message with a ban button")
+@bot.command(name="sendban", description="Send an embed message with a ban button")
 async def send_ban(ctx, name: str, userid: int):
 	embed = discord.Embed(title="Ban User", description=f"Are you sure you want to ban {name}?", color=discord.Color.red())
 	embed.set_thumbnail(url=ctx.guild.icon_url)
