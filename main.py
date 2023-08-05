@@ -47,9 +47,8 @@ async def send_embed(ctx, name: str, user_id: int):
 		except discord.NotFound:
 			await interaction.followup.send_message('User not found.')
 
-#	action_row = discord.ui.ActionRow(
-	action_row = discord.ActionRow(
-
+	action_row = discord.ui.ActionRow(
+#	action_row = discord.ActionRow(
 		discord.ui.Button(label='Ban User', custom_id='ban_user', style=discord.ButtonStyle.red)
 	)
 
