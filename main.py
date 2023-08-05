@@ -43,7 +43,7 @@ async def send_embed(ctx, name: str, user_id: int):
 		try:
 			user = await bot.fetch_user(user_id)
 			await ctx.guild.ban(user, reason='User ban requested')
-		await interaction.followup.send_message('Successfully banned user {name}')
+			await interaction.followup.send_message(f'Successfully banned user {name}')
 		except discord.NotFound:
 			await interaction.followup.send_message('User not found.')
 
