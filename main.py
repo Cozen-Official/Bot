@@ -30,30 +30,20 @@ async def broadcast(ctx, *, msg):
 			else:
 				continue
 
-@bot.command()
-async def send_embed(ctx, name: str, user_id: int):
-	embed = discord.Embed(
-		title=f'User Ban: {name}',
-		description=f'Are you sure you want to ban {name}?',
-		color=discord.Color.red()
-	)
+@bot.slash_command(name="sendban", description="Send an embed message with a ban button")
+async def send_ban(ctx, name: str, userid: int):
+	embed = discord.Embed(title="Ban User", description=f"Are you sure you want to ban {name}?", color=discord.Color.red())
+	embed.set_thumbnail(url=ctx.guild.icon_url)
 
-	async def ban_callback(interaction):
-		await interaction.response.send_message('Banning user...')
-		try:
-			user = await bot.fetch_user(user_id)
-			await ctx.guild.ban(user, reason='User ban requested')
-			await interaction.followup.send_message(f'Successfully banned user {name}')
-		except discord.NotFound:
-			await interaction.followup.send_message('User not found.')
+	view = View()
 
-	action_row = discord.ui.ActionRow(
-#	action_row = discord.ActionRow(
-		discord.ui.Button(label='Ban User', custom_id='ban_user', style=discord.ButtonStyle.red)
-	)
+	async def ban_button_callback(button, interaction):
+		await interaction.response.send_message("User banned.", ephemeral=True)
+		await interaction.user.ban(reason="Banned through bot command")
 
-	view = discord.ui.View()
-	view.add_item(action_row)
+	ban_button = Button(label="Ban", custom_id="ban_button")
+	ban_button.callback = ban_button_callback
+	view.add_item(ban_button)
 
 	await ctx.send(embed=embed, view=view)
 
