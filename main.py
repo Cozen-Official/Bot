@@ -6,8 +6,6 @@ from discord import Client, Interaction, app_commands
 from discord.app_commands import Range
 from embeds import error_embed, success_embed
 
-os.environ["NIXPACKS_PYTHON_VERSION"] = 3.11
-
 discord.utils.setup_logging()
 
 log = logging.getLogger()
